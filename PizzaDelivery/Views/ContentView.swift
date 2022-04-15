@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var isAuth = true
     @State private var email = ""
     @State private var password = ""
+    @State private var confirmpassword = ""
+    @State private var isToogle = false
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
-            Text("Авторизация")
-                .padding()
+            Text( isAuth ? "Авторизация" : "Регистрация")
+                .padding(isAuth ? 16 : 20)
                 .padding(.horizontal,30)
                 .font(.title.bold())
                 .background(Color("whiteAlpha"))
@@ -32,11 +34,28 @@ struct ContentView: View {
                     .background(Color("textbg"))
                     .cornerRadius(12)
                     .padding(.horizontal,8)
+                if !isAuth {
+                    SecureField("Повторите пароль", text: $confirmpassword)
+                        .padding()
+                        .background(Color("textbg"))
+                        .cornerRadius(12)
+                        .padding(.horizontal,8)
+                    
+                }
                 
                 Button {
+                    if isAuth {
                     print("signIn")
+                        isToogle.toggle()
+                    } else {
+                        print("register")
+                        self.email = ""
+                        self.password = ""
+                        self.confirmpassword = ""
+                        self.isAuth.toggle()
+                    }
                 } label: {
-                    Text("Вход")
+                    Text(isAuth ? "Вход" : "Создать аккаунт")
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity)
                         .padding(12)
@@ -49,9 +68,9 @@ struct ContentView: View {
                 }.padding(.top)
                 
                 Button {
-                    print("register")
+                    isAuth.toggle()
                 } label: {
-                    Text("Регистрация")
+                    Text(isAuth ? "Регистрация" : "Уже есть аккаунт?")
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity)
                         .padding(12)
@@ -69,7 +88,12 @@ struct ContentView: View {
             
         }.frame( maxWidth: .infinity,   maxHeight: .infinity)
             .ignoresSafeArea()
-            .background(Image("bg").resizable().ignoresSafeArea())
+            .background(Image("bg").resizable().ignoresSafeArea().blur(radius: isAuth ? 0  : 6))
+
+            .animation(Animation.easeInOut(duration: 0.3), value: isAuth)
+            .fullScreenCover(isPresented: $isToogle) {
+                MainTabBar()
+            }
         
         
     }

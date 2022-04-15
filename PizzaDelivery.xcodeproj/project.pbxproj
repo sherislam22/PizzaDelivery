@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AB6D01F280990DE006E9FDA /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D01E280990DE006E9FDA /* MainTabBar.swift */; };
+		6AB6D02128099AB4006E9FDA /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D02028099AB4006E9FDA /* CatalogView.swift */; };
+		6AB6D02328099ABE006E9FDA /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D02228099ABE006E9FDA /* CartView.swift */; };
+		6AB6D02528099AC8006E9FDA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D02428099AC8006E9FDA /* ProfileView.swift */; };
+		6AB6D0292809A328006E9FDA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D0282809A328006E9FDA /* Product.swift */; };
+		6AB6D02B2809A37B006E9FDA /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D02A2809A37B006E9FDA /* ProductCell.swift */; };
+		6AB6D02F2809AAF0006E9FDA /* CatalogModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D02E2809AAF0006E9FDA /* CatalogModelView.swift */; };
+		6AB6D0322809AD2C006E9FDA /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6D0312809AD2C006E9FDA /* ProductDetailView.swift */; };
 		6AF3761428094323002EB86E /* PizzaDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3761328094323002EB86E /* PizzaDeliveryApp.swift */; };
 		6AF3761628094323002EB86E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3761528094323002EB86E /* ContentView.swift */; };
 		6AF3761828094325002EB86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3761728094325002EB86E /* Assets.xcassets */; };
@@ -14,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AB6D01E280990DE006E9FDA /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		6AB6D02028099AB4006E9FDA /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		6AB6D02228099ABE006E9FDA /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		6AB6D02428099AC8006E9FDA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		6AB6D0282809A328006E9FDA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6AB6D02A2809A37B006E9FDA /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		6AB6D02E2809AAF0006E9FDA /* CatalogModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelView.swift; sourceTree = "<group>"; };
+		6AB6D0312809AD2C006E9FDA /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		6AF3761028094323002EB86E /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3761328094323002EB86E /* PizzaDeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDeliveryApp.swift; sourceTree = "<group>"; };
 		6AF3761528094323002EB86E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +48,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AB6D02628099C0D006E9FDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6AB6D01E280990DE006E9FDA /* MainTabBar.swift */,
+				6AB6D0312809AD2C006E9FDA /* ProductDetailView.swift */,
+				6AF3761528094323002EB86E /* ContentView.swift */,
+				6AB6D02228099ABE006E9FDA /* CartView.swift */,
+				6AB6D02428099AC8006E9FDA /* ProfileView.swift */,
+				6AB6D02028099AB4006E9FDA /* CatalogView.swift */,
+				6AB6D02C2809A381006E9FDA /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6AB6D02C2809A381006E9FDA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6AB6D02A2809A37B006E9FDA /* ProductCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6AB6D02D2809AAD6006E9FDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6AB6D0282809A328006E9FDA /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6AB6D0302809AAF3006E9FDA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6AB6D02E2809AAF0006E9FDA /* CatalogModelView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6AF3760728094323002EB86E = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				6AF3761328094323002EB86E /* PizzaDeliveryApp.swift */,
-				6AF3761528094323002EB86E /* ContentView.swift */,
+				6AB6D02D2809AAD6006E9FDA /* Models */,
+				6AB6D02628099C0D006E9FDA /* Views */,
+				6AB6D0302809AAF3006E9FDA /* ViewModel */,
 				6AF3761728094325002EB86E /* Assets.xcassets */,
 				6AF3761928094325002EB86E /* Preview Content */,
 			);
@@ -137,8 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB6D02328099ABE006E9FDA /* CartView.swift in Sources */,
+				6AB6D0322809AD2C006E9FDA /* ProductDetailView.swift in Sources */,
+				6AB6D01F280990DE006E9FDA /* MainTabBar.swift in Sources */,
 				6AF3761628094323002EB86E /* ContentView.swift in Sources */,
+				6AB6D02128099AB4006E9FDA /* CatalogView.swift in Sources */,
+				6AB6D02528099AC8006E9FDA /* ProfileView.swift in Sources */,
+				6AB6D02B2809A37B006E9FDA /* ProductCell.swift in Sources */,
 				6AF3761428094323002EB86E /* PizzaDeliveryApp.swift in Sources */,
+				6AB6D0292809A328006E9FDA /* Product.swift in Sources */,
+				6AB6D02F2809AAF0006E9FDA /* CatalogModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
