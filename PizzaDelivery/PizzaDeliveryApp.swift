@@ -13,7 +13,7 @@ let screen = UIScreen.main.bounds
 struct PizzaDeliveryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthView()
         }
     }
 }

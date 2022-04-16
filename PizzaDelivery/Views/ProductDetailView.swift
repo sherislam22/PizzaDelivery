@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ProductDetailView: View {
-    var product: Product
+   
+    
+    var viewmodel: ProductDetailViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @State private var count = 1
+    @State var size = "Маленькая"
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 12) {
-            Image(product.imageUrl)
+            Image(viewmodel.product.imageUrl)
                 .resizable()
                 .aspectRatio( contentMode: .fill)
                 .frame(width: screen.width, height: screen.width)
@@ -22,22 +27,41 @@ struct ProductDetailView: View {
                 
            
             HStack {
-                Text(product.title)
+                Text(viewmodel.product.title)
                     .font(.custom("AvenirNext-regular", size: 24))
-                Text("\(product.price) сом")
+                Text("\(viewmodel.getPrice(size: size)) сом")
                     .font(.custom("AvenirNext-bold", size: 20))
                 
             }.padding(.horizontal,6)
                
             VStack {
-                Text(product.descrip)
+                Text(viewmodel.product.descrip)
                     .font(.custom("AvenirNext-regular", size: 24))
             }
-            Spacer()
+            HStack {
+                Stepper("Количество", value: $count, in:1...10)
+                Text("\(count)")
+                    .padding(.horizontal)
+                    .padding(.vertical,4)
+                
+            }.padding(.horizontal)
+            
+            Picker("Размер пиццы", selection:$size) {
+                ForEach(viewmodel.sizes, id: \.self) {
+                    size in
+                    Text(size)
+                }
+            }.pickerStyle(.segmented)
+                .padding(.horizontal)
+            
             
             HStack {
                 Button {
-                    print("Order")
+                    var position = Positions(id: UUID().uuidString, product: viewmodel.product, count: count)
+                    position.product.price = viewmodel.getPrice(size: size)
+                    CartViewModel.shared.addPositions(position)
+                    presentationMode.wrappedValue.dismiss()
+                   
                 } label: {
                     Text("Заказать")
                         .padding(.horizontal)
@@ -51,7 +75,7 @@ struct ProductDetailView: View {
                 }
 
             }
-            
+            Spacer()
         }.navigationBarHidden(false)
         }
     }
@@ -59,6 +83,6 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView(product: Product(id: "7", title: "Ассорти", imageUrl: "Pizza", descrip: "Description", price: 550))
+        ProductDetailView(viewmodel: ProductDetailViewModel(product: Product(id: "7", title: "Ассорти", imageUrl: "Pizza", descrip: "Description", price: 550)))
     }
 }
