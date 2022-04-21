@@ -32,10 +32,10 @@ struct CatalogView: View {
                 }
             }
             Spacer()
-            Section("Popular") {
+            Section("All") {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: layerforPizza, spacing: 16) {
-                        ForEach(CatalogModelView.shared.popularProducts, id: \.id ) {
+                        ForEach(CatalogModelView.shared.AllProducts, id: \.id ) {
                             item in
                             NavigationLink {
                                 let viewmodel = ProductDetailViewModel(product: item)
